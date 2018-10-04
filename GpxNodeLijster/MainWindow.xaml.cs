@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace GpxNodeLijster
 {
@@ -26,6 +28,7 @@ namespace GpxNodeLijster
         }
 
         string InputPath;
+        string nodeStr;
 
         private void DeletButton_Click(object sender, RoutedEventArgs e)
         { 
@@ -37,13 +40,25 @@ namespace GpxNodeLijster
             InputPath = InputBox.Text;
 
             string[] files = System.IO.Directory.GetFiles(InputPath, "*.gpx");
-
+            
             foreach (var file in files)
             {
+                FileStream fs = new FileStream(InputPath, FileMode.Open, FileAccess.Read);
+                XmlDocument xmldoc = new XmlDocument();
+                XmlNodeList xmlnode;
+
+                xmldoc.Load(fs);
+                xmlnode = xmldoc.GetElementsByTagName("gpx");
+
+                for (int i = 0; i < xmlnode.Count; i++)
+                {
+                    nodeStr = string.Format("{0}", xmlnode[i].ChildNodes.Item(6).InnerText);
+                }
+
+                string fileNodeName = file + nodeStr;
+
                 ListBox_files.Items.Add(file);
             }
-
-
         }
 
         private void FileRenameButton_Click(object sender, RoutedEventArgs e)
