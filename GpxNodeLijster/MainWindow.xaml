@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListBox x:Name="ListBox_files" HorizontalAlignment="Left" Height="388" Margin="10,21,0,0" VerticalAlignment="Top" Width="193"/>
+        <ListBox x:Name="ListBox_nodes" HorizontalAlignment="Left" Height="388" Margin="238,21,0,0" VerticalAlignment="Top" Width="166"/>
+        <Button x:Name="DeletButton" Content="Button" HorizontalAlignment="Left" Height="74" Margin="439,335,0,0" VerticalAlignment="Top" Width="317"/>
+
     </Grid>
 </Window>
