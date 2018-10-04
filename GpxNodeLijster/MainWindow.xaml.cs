@@ -44,5 +44,10 @@ namespace GpxNodeLijster
         {
 
         }
+
+        private void InputConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
