@@ -24,5 +24,20 @@ namespace GpxNodeLijster
         {
             InitializeComponent();
         }
+
+        private void ListBox_files_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void ListBox_nodes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DeletButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

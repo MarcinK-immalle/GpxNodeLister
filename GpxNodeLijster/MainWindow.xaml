@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="ListBox_files" HorizontalAlignment="Left" Height="388" Margin="10,21,0,0" VerticalAlignment="Top" Width="193"/>
-        <ListBox x:Name="ListBox_nodes" HorizontalAlignment="Left" Height="388" Margin="238,21,0,0" VerticalAlignment="Top" Width="166"/>
-        <Button x:Name="DeletButton" Content="Button" HorizontalAlignment="Left" Height="74" Margin="439,335,0,0" VerticalAlignment="Top" Width="317"/>
+        <ListBox x:Name="ListBox_files" HorizontalAlignment="Left" Height="388" Margin="10,21,0,0" VerticalAlignment="Top" Width="193" SelectionChanged="ListBox_files_SelectionChanged"/>
+        <ListBox x:Name="ListBox_nodes" HorizontalAlignment="Left" Height="388" Margin="238,21,0,0" VerticalAlignment="Top" Width="166" SelectionChanged="ListBox_nodes_SelectionChanged"/>
+        <Button x:Name="DeletButton" Content="Delete selected" HorizontalAlignment="Left" Height="80" Margin="439,329,0,0" VerticalAlignment="Top" Width="317" Click="DeletButton_Click"/>
+        <Button x:Name="InitButton" Content="Initialize" HorizontalAlignment="Left" Height="80" Margin="439,21,0,0" VerticalAlignment="Top" Width="317"/>
 
     </Grid>
 </Window>
