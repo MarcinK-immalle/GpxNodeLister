@@ -42,8 +42,6 @@ namespace GpxNodeLijster
             {
                 ListBox_files.Items.Add(file);
             }
-
-
         }
 
         private void FileRenameButton_Click(object sender, RoutedEventArgs e)
