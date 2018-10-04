@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace GpxNodeLijster
 {
@@ -44,19 +45,22 @@ namespace GpxNodeLijster
             foreach (var file in files)
             {
                 FileStream fs = new FileStream(InputPath, FileMode.Open, FileAccess.Read);
-                XmlDocument xmldoc = new XmlDocument();
-                XmlNodeList xmlnode;
 
-                xmldoc.Load(fs);
-                xmlnode = xmldoc.GetElementsByTagName("gpx");
+                var xdoc = XDocument.Load(fs);
+                var units = from u in xdoc.Descendants("gpx")
+                            select new
+                            {
+                                urlname = (string)u.Element("urlname")
+                                //Id = (int)u.Element("id"),
+                                //Name = (string)u.Element("name")
+                            };
 
-                for (int i = 0; i < xmlnode.Count; i++)
+                foreach (var unit in units)
                 {
-                    nodeStr = string.Format("{0}", xmlnode[i].ChildNodes.Item(6).InnerText);
+                    // thanks God for IntelliSense!
+                    //MessageBox.Show(String.Format("ID:{0}\r\nName:{1}", unit.Id, unit.Name));
+                    MessageBox.Show(string.Format("{0}", unit.urlname));
                 }
-
-                string fileNodeName = file + nodeStr;
-
                 ListBox_files.Items.Add(file);
             }
         }
