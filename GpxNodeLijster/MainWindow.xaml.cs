@@ -25,29 +25,30 @@ namespace GpxNodeLijster
             InitializeComponent();
         }
 
-        private void ListBox_files_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
-        private void ListBox_nodes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        string InputPath;
 
         private void DeletButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+        { 
+            
         }
 
         private void InputConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            InputPath = InputBox.Text;
+
+            string[] files = System.IO.Directory.GetFiles(InputPath, "*.gpx");
+
+            foreach (var file in files)
+            {
+                ListBox_files.Items.Add(file);
+            }
+
+
+        }
+
+        private void FileRenameButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
